@@ -1,7 +1,7 @@
-import { Options } from '../src/types'
-import { RRule } from '../src/rrule'
-import { optionsToString } from '../src/optionstostring'
-import { datetime } from './lib/utils'
+import { Options } from '../src/types.js'
+import { RRule } from '../src/rrule.js'
+import { optionsToString } from '../src/optionstostring.js'
+import { datetime } from './lib/utils.js'
 
 describe('optionsToString', () => {
   it('serializes valid single lines of rrules', function () {

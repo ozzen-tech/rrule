@@ -1,7 +1,7 @@
-import { RRule } from '../src/rrule'
-import { parseString } from '../src/parsestring'
-import { Options, Frequency } from '../src/types'
-import { datetime } from './lib/utils'
+import { RRule } from '../src/rrule.js'
+import { parseString } from '../src/parsestring.js'
+import { Options, Frequency } from '../src/types.js'
+import { datetime } from './lib/utils.js'
 
 describe('parseString', () => {
   it('parses valid single lines of rrules', function () {

@@ -1,10 +1,10 @@
-const path = require('path')
-const TerserPlugin = require('terser-webpack-plugin')
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin')
+import path from 'path'
+import TerserPlugin from 'terser-webpack-plugin'
+import UnminifiedWebpackPlugin from 'unminified-webpack-plugin'
 
 const paths = {
-  source: path.resolve(__dirname, 'src'),
-  es5: path.resolve(__dirname, 'dist', 'es5'),
+  source: path.resolve(import.meta.dirname, 'src'),
+  es5: path.resolve(import.meta.dirname, 'dist', 'es5'),
 }
 
 const commonConfig = {
@@ -19,13 +19,16 @@ const commonConfig = {
   mode: 'production',
   resolve: {
     extensions: ['.js', '.ts'],
+    extensionAlias: {
+      '.js': ['.ts', '.js'],
+    },
   },
   module: {
     rules: [
       {
         exclude: /node_modules/,
         loader: 'ts-loader',
-        test: /\.ts$/,
+        test: /\.(js|ts)$/,
         options: {
           configFile: 'tsconfig.build.json',
         },
@@ -48,4 +51,4 @@ const rruleConfig = Object.assign(
   commonConfig
 )
 
-module.exports = [rruleConfig]
+export default [rruleConfig]

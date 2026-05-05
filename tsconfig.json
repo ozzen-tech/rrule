@@ -3,12 +3,13 @@
     "noEmit": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "module": "commonjs",
+    "module": "nodenext",
     "noEmitOnError": true,
     "esModuleInterop": true,
     "target": "es6",
     "baseUrl": ".",
-    "rootDirs": ["./src/", "./test/"]
+    "rootDirs": ["./src/", "./test/"],
+    "moduleResolution": "nodenext"
   },
   "include": ["./src/**/*", "./test/**/*"],
   "exclude": ["node_modules"]

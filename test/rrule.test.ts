@@ -4,8 +4,8 @@ import {
   testRecurring,
   expectedDate,
   TEST_CTX,
-} from './lib/utils'
-import { RRule, rrulestr, Frequency } from '../src/index'
+} from './lib/utils.js'
+import { RRule, rrulestr, Frequency } from '../src/index.js'
 import { set as setMockDate, reset as resetMockDate } from 'mockdate'
 
 describe('RRule', function () {

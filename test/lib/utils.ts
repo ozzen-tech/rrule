@@ -1,6 +1,6 @@
-export { datetime } from '../../src/dateutil'
-import { dateInTimeZone, datetime } from '../../src/dateutil'
-import { RRule, RRuleSet } from '../../src'
+export { datetime } from '../../src/dateutil.js'
+import { dateInTimeZone, datetime } from '../../src/dateutil.js'
+import { RRule, RRuleSet } from '../../src/index.js'
 
 export const TEST_CTX = {
   ALSO_TESTSTRING_FUNCTIONS: false,
