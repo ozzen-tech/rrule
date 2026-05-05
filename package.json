@@ -13,23 +13,33 @@
   ],
   "author": "Jakub Roztocil, Lars Schöning, and David Golightly",
   "main": "dist/es5/rrule.js",
-  "module": "dist/esm/index.js",
+  "exports": {
+    "import": {
+      "types": "./dist/esm/index.d.ts",
+      "default": "./dist/esm/index.js"
+    },
+    "require": "./dist/es5/rrule.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "types": "dist/esm/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/jakubroztocil/rrule.git"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "prepublish": "yarn build",
-    "build": "yarn lint && yarn format-check && tsc -b tsconfig.build.json && webpack && tsc dist/esm/**/*.d.ts",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "build": "npm run lint && npm run format-check && tsc -b tsconfig.build.json && webpack && tsc dist/esm/**/*.d.ts",
     "clean": "rm -rf dist/",
-    "lint": "yarn eslint . --fix --config .eslintrc.js",
-    "format": "yarn prettier --write .",
-    "format-check": "yarn prettier --check .",
+    "lint": "eslint . --fix --config .eslintrc.js",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
     "run-ts": "TS_NODE_PROJECT=tsconfig.json node --loader ts-node/esm",
     "test": "jest **/*.test.ts",
-    "test-ci": "yarn run-ts ./node_modules/.bin/nyc jest **/*.test.ts"
+    "test-ci": "run-ts ./node_modules/.bin/nyc jest **/*.test.ts"
   },
   "nyc": {
     "extension": [
@@ -46,8 +56,8 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint",
-      "yarn format"
+      "npm lint",
+      "npm format"
     ]
   },
   "devDependencies": {
@@ -80,10 +90,6 @@
     "webpack": "^5.73.0",
     "webpack-cli": "^4.9.2"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "peerDependencies": {},
   "dependencies": {
     "tslib": "^2.4.0"
